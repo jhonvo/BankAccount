@@ -31,6 +31,13 @@ class Account:
     def changeBankName( cls, newName ):
         cls.bankName = newName
     
+    @classmethod #Added to be able to confirm if the account exists
+    def findAccount( cls, accountNo ):
+        for currentAccount in cls.allBankAccounts:
+            if currentAccount.accountNum == accountNo:
+                return currentAccount
+        return None
+
     @classmethod
     def printAllAccountsInfo( cls ):
         for account in cls.allBankAccounts:
